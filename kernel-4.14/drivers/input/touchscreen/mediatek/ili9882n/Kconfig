@@ -1,0 +1,10 @@
+#
+# Touchscreen driver configuration
+#
+config TOUCHSCREEN_MTK_ILI9882N
+    bool "ili9882n Touchscreen"
+    default n
+    help
+      Say Y here if you have ili9882n touch panel.
+      If unsure, say N.
+ 

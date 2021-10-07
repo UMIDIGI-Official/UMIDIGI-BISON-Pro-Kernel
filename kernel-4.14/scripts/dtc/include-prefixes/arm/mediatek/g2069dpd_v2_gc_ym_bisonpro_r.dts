@@ -1,0 +1,82 @@
+/*
+ * Copyright (C) 2019 MediaTek Inc.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 as
+ * published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See http://www.gnu.org/licenses/gpl-2.0.html for more details.
+ */
+
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/interrupt-controller/arm-gic.h>
+#include <dt-bindings/pinctrl/mt6768-pinfunc.h>
+
+
+#include "mediatek/teksun/g2069dpd_v2.dtsi"
+#include <g2069dpd_v2_gc_ym_bisonpro_r/cust.dtsi>
+/*#include "mediatek/cust_mt6768_camera.dtsi"*/
+/*#include "mediatek/cust_mt6768_touch_1080x2160.dtsi"*/
+
+&charger {
+
+		enable_pe_plus;
+		enable_pe_2;
+		enable_pe_3;
+		enable_pe_4;
+		battery_cv = <4480000>;
+		max_charger_voltage = <9800000>;
+		min_charger_voltage = <4600000>;
+
+		/* dynamic mivr */
+		min_charger_voltage_1 = <4480000>;
+		min_charger_voltage_2 = <4200000>;
+		max_dmivr_charger_current = <1400000>;
+
+		/* charging current */
+		usb_charger_current_suspend = <0>;
+		usb_charger_current_unconfigured = <70000>;
+		usb_charger_current_configured = <500000>;
+		usb_charger_current = <500000>;
+		ac_charger_current = <2050000>;
+		ac_charger_input_current = <3000000>;
+		non_std_ac_charger_current = <500000>;
+		charging_host_charger_current = <1500000>;
+		apple_1_0a_charger_current = <650000>;
+		apple_2_1a_charger_current = <800000>;
+		ta_ac_charger_current = <3000000>;
+		
+		enable_min_charge_temp;
+		min_charge_temp = <0>;
+		min_charge_temp_plus_x_degree = <5>;
+		max_charge_temp = <55>;
+		max_charge_temp_minus_x_degree = <50>;
+		
+		/* PE */
+		/* ta_12v_support; */
+		ta_9v_support;
+		pe_ichg_level_threshold = <1000000>; /* uA */
+		ta_ac_12v_input_current = <1500000>;
+		ta_ac_9v_input_current = <1500000>;
+		ta_ac_7v_input_current = <1500000>;
+		
+		high_temp_to_leave_pe40 = <56>;
+		high_temp_to_enter_pe40 = <50>;
+		low_temp_to_leave_pe40 = <10>;
+		low_temp_to_enter_pe40 = <16>;
+		
+		/* dual charger */
+		chg1_ta_ac_charger_current = <1500000>;
+		chg2_ta_ac_charger_current = <1500000>;
+		slave_mivr_diff = <100000>;
+		dual_polling_ieoc = <450000>;
+		
+		pd_stop_battery_soc = <85>;
+};
+
+/*End of this file, DO NOT ADD ANYTHING HERE*/
